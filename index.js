@@ -67,7 +67,7 @@ class ptz {
 
     static getCapabilities(camera) {
 
-        return runShell(`v4l2-ctl --device=${camera.path} --list-ctrls`).then((result) => {
+        return ptz.runShell(`v4l2-ctl --device=${camera.path} --list-ctrls`).then((result) => {
             /*
         result will look like this:
                  brightness (int)    : min=0 max=14 step=1 default=6 value=6
@@ -188,13 +188,13 @@ class ptz {
     }
 
     static absolutePanTilt(camera, pan, tilt) {
-        return runShell(`v4l2-ctl --device=${camera.path} --set-ctrl=pan_absolute=${pan},tilt_absolute=${tilt}`).then(() => {
+        return ptz.runShell(`v4l2-ctl --device=${camera.path} --set-ctrl=pan_absolute=${pan},tilt_absolute=${tilt}`).then(() => {
             return;
         });
     }
 
     static absoluteZoom(camera, zoom) {
-        return runShell(`v4l2-ctl --device=${camera.path} --set-ctrl=zoom_absolute=${zoom}`).then(() => {
+        return ptz.runShell(`v4l2-ctl --device=${camera.path} --set-ctrl=zoom_absolute=${zoom}`).then(() => {
             return;
         });
     }
