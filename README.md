@@ -3,6 +3,7 @@
 Works on linux only.
 
 ```
+apt-get install v4l-utils
 npm install
 node index.js
 ```
